@@ -44,7 +44,7 @@ const getStartedData: GetStartedItem[] = [
 const GetStarted = () => {
     return (
         <div className="py-16">
-            <h2 className="inter text-4xl text-white text-center mb-7">Getting Started</h2>
+            <h2 className="inter text-4xl text-white text-center font-bold mb-7">Getting Started</h2>
             <div><GetStartedContainer items={getStartedData} /></div>
         </div>
     );
