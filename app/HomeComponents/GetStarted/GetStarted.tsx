@@ -1,9 +1,51 @@
 "use client"
+import { JSX } from "react";
+import { FiClock, FiKey, FiMessageSquare, FiSearch } from "react-icons/fi";
+import GetStartedContainer from "./components/GetStartedContainer";
+
+export interface GetStartedItem {
+  id: number;
+  title: string;
+  description: string;
+  icon: JSX.Element;
+}
+
+const getStartedData: GetStartedItem[] = [
+  {
+    id: 1,
+    title: "Generate Token",
+    description:
+      "Create a unique token to start a secure and temporary conversation.",
+    icon: <FiKey size={28} />,
+  },
+  {
+    id: 2,
+    title: "Choose a Plan",
+    description:
+      "Select a duration (2h, 6h, 24h). After this time, all chats are automatically deleted.",
+    icon: <FiClock size={28} />,
+  },
+  {
+    id: 3,
+    title: "Enter Token",
+    description:
+      "Paste the token of the person you want to chat with in the search bar.",
+    icon: <FiSearch size={28} />,
+  },
+  {
+    id: 4,
+    title: "Start Chatting",
+    description:
+      "Begin your conversation instantly with end-to-end privacy.",
+    icon: <FiMessageSquare size={28} />,
+  },
+];
 
 const GetStarted = () => {
     return (
-        <div>
-            <h2 className="inter text-4xl text-white text-center">Getting Started</h2>
+        <div className="py-16">
+            <h2 className="inter text-4xl text-white text-center mb-7">Getting Started</h2>
+            <div><GetStartedContainer items={getStartedData} /></div>
         </div>
     );
 };
