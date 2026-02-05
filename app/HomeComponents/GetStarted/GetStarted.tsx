@@ -16,28 +16,28 @@ const getStartedData: GetStartedItem[] = [
     title: "Generate Token",
     description:
       "Create a unique token to start a secure and temporary conversation.",
-    icon: <FiKey size={28} />,
+    icon: <FiKey className="text-[#6FC7A1]" size={28} />,
   },
   {
     id: 2,
     title: "Choose a Plan",
     description:
       "Select a duration (2h, 6h, 24h). After this time, all chats are automatically deleted.",
-    icon: <FiClock size={28} />,
+    icon: <FiClock className="text-[#6FC7A1]" size={28} />,
   },
   {
     id: 3,
     title: "Enter Token",
     description:
       "Paste the token of the person you want to chat with in the search bar.",
-    icon: <FiSearch size={28} />,
+    icon: <FiSearch className="text-[#6FC7A1]" size={28} />,
   },
   {
     id: 4,
     title: "Start Chatting",
     description:
       "Begin your conversation instantly with end-to-end privacy.",
-    icon: <FiMessageSquare size={28} />,
+    icon: <FiMessageSquare className="text-[#6FC7A1]" size={28} />,
   },
 ];
 
