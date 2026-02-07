@@ -1,4 +1,5 @@
 import Banner from "./HomeComponents/Banner/Banner";
+import CallToAction from "./HomeComponents/CallToAction/CallToAction";
 import FaQ from "./HomeComponents/FaQ/FaQ";
 import Footer from "./HomeComponents/Footer/Footer";
 import GetStarted from "./HomeComponents/GetStarted/GetStarted";
@@ -9,6 +10,7 @@ export default function Home() {
     <div className="max-w-275 mx-auto px-4">
       <Banner />
       <GetStarted />
+      <CallToAction />
       <SafetyAndSecurity />
       <FaQ />
       <Footer />
