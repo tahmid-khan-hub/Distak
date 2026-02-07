@@ -21,10 +21,10 @@ const CallToAction = () => {
             <button
               className="
                 px-8 py-3 rounded-xl
-                bg-[#6FC7A1] text-black font-semibold
+                bg-primary text-primary-foreground font-semibold
                 transition-all duration-300
                 hover:scale-105
-                hover:shadow-[0_0_20px_rgba(111,199,161,0.7)]
+                hover:shadow-[0_4px_15px_rgba(120,120,120,0.3)]
               "
             >
               Generate a Token
