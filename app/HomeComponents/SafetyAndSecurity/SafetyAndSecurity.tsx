@@ -5,20 +5,20 @@ import SecurityContent from "./components/SecurityContent";
 const SafetyAndSecurity = () => {
     return (
         <div className="py-16">
-            <div className="flex flex-col items-center px-4 md:flex-row">
-                {/* image */}
-                <div className="w-full md:w-1/2">
+            <div className="max-w-4xl mx-auto text-center">
+                {/* icon */}
+                <div className="flex justify-center mb-12">
                     <Image 
-                        src="/assets/Safety_and_security.png" 
+                        src="/assets/shield.png" 
                         alt="End to End Encryption"
-                        width={400}
-                        height={400}
-                        className="w-full "
+                        width={200}
+                        height={200}
+                        className="w-48 h-48"
                     />
                 </div>
 
                 {/* content */}
-                <div className="w-full md:w-1/2 p-4 md:p-8">
+                <div className="">
                     <SecurityContent />
                 </div>
             </div>
