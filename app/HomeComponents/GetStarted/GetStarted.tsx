@@ -2,6 +2,7 @@
 import { JSX } from "react";
 import { FiClock, FiKey, FiMessageSquare, FiSearch } from "react-icons/fi";
 import GetStartedContainer from "./components/GetStartedContainer";
+import AnimateOnView from "@/app/hooks/AnimateOnView";
 
 export interface GetStartedItem {
   id: number;
@@ -44,7 +45,9 @@ const getStartedData: GetStartedItem[] = [
 const GetStarted = () => {
     return (
         <div className="py-16">
-            <h2 className="inter text-4xl text-white text-center font-bold mb-7">Getting Started</h2>
+            <AnimateOnView direction="up" delay={0.25} duration={0.6}>
+              <h2 className="inter text-4xl text-white text-center font-bold mb-7">Getting Started</h2>
+            </AnimateOnView>
             <div><GetStartedContainer items={getStartedData} /></div>
         </div>
     );
