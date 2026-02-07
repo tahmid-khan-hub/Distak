@@ -1,5 +1,6 @@
 import Banner from "./HomeComponents/Banner/Banner";
 import FaQ from "./HomeComponents/FaQ/FaQ";
+import Footer from "./HomeComponents/Footer/Footer";
 import GetStarted from "./HomeComponents/GetStarted/GetStarted";
 import SafetyAndSecurity from "./HomeComponents/SafetyAndSecurity/SafetyAndSecurity";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <GetStarted />
       <SafetyAndSecurity />
       <FaQ />
+      <Footer />
     </div>
   );
 }
