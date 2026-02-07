@@ -6,7 +6,8 @@ const Banner = () => {
             {/* content */}
             <div>
                 {/* title */}
-                <h1 className="inter text-6xl font-bold text-white text-center"><span className="text-7xl text-green-300">D</span>istak</h1>
+                <h1 className="inter text-6xl font-bold text-white text-center"><span className="text-7xl text-[#6FC7A1]
+                transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-x-1">D</span>istak</h1>
                 {/* sub-title */}
                 <h2 className="inter text-xl text-white text-center mt-7">Where conversations start with a token</h2>
                 {/* description */}

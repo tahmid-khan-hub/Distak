@@ -42,7 +42,7 @@ const FaQ = () => {
         type="single"
         collapsible
         defaultValue="item-1"
-        className="poppins max-w-190 mx-auto"
+        className="poppins text-[#b6e9d3] max-w-190 mx-auto"
       >
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
