@@ -1,9 +1,10 @@
 "use client";
+import Logo from "./components/logo/logo";
 
 const ChatPage = () => {
     return (
         <div>
-            chat page
+            <Logo />
         </div>
     );
 };
