@@ -13,8 +13,7 @@ const TimeLimitCard = ({
   description
 }: TimeLimitCardProps) => {
   return (
-    <div>
-      <button
+    <button
         onClick={onClick}
         className={`
         h-full rounded-xl border p-6 text-left flex flex-col justify-start transition-all duration-200
@@ -24,11 +23,10 @@ const TimeLimitCard = ({
             : "border-white/10 hover:border-primary/60"
         }
       `}
-      >
-        <h3 className="text-2xl font-semibold text-white mb-5">{label}</h3>
-        <p className="text-md text-gray-400">{description}</p>
-      </button>
-    </div>
+    >
+        <h3 className="inter text-2xl font-semibold text-white mb-5">{label}</h3>
+        <p className="poppins text-md text-gray-400">{description}</p>
+    </button>
   );
 };
 
