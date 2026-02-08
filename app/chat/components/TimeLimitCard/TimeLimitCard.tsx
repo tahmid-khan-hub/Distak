@@ -3,20 +3,21 @@ interface TimeLimitCardProps {
   value: string;
   selected: boolean;
   onClick: () => void;
+  description?: string;
 }
 
 const TimeLimitCard = ({
   label,
   selected,
-  value,
   onClick,
+  description
 }: TimeLimitCardProps) => {
   return (
     <div>
       <button
         onClick={onClick}
         className={`
-        rounded-xl border p-6 text-center transition-all duration-200
+        h-full rounded-xl border p-6 text-left flex flex-col justify-start transition-all duration-200
         ${
           selected
             ? "border-primary bg-primary/10 shadow-[0_0_15px_rgba(111,199,161,0.4)]"
@@ -24,7 +25,8 @@ const TimeLimitCard = ({
         }
       `}
       >
-        <p className="text-lg font-semibold text-white">{label}</p>
+        <h3 className="text-2xl font-semibold text-white mb-5">{label}</h3>
+        <p className="text-md text-gray-400">{description}</p>
       </button>
     </div>
   );
