@@ -10,6 +10,23 @@ export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
     const [token, setToken] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const generateToken = (length = 16) => {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const array = new Uint32Array(length);
+        crypto.getRandomValues(array);
+        return Array.from(array, (x) => chars[x % chars.length]).join("");
+    }
+
+    const handleGenerate = async () => {
+        if (!selected || loading) return;
+        setLoading(true);
+        setToken("");
+
+        const newToken = generateToken(16);
+        setToken(newToken);
+        setLoading(false);
+    }
     return (
         <div className="max-w-5xl mx-auto py-16 px-4">
             {/* Title */}
@@ -42,7 +59,7 @@ export default function TimeLimitSelector() {
             </div>
 
             {/* generates token */}
-            <TokenGenerator token={token} loading={loading} disabled={!selected} />
+            <TokenGenerator token={token} loading={loading} disabled={!selected} onGenerate={handleGenerate} />
         </div>
     )
 }

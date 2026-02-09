@@ -5,9 +5,10 @@ interface TokenGeneratorProps {
   token: string;
   loading: boolean;
   disabled?: boolean;
+  onGenerate: () => void;
 }
 
-export default function TokenGenerator({ token, loading, disabled, }: TokenGeneratorProps) {
+export default function TokenGenerator({ token, loading, disabled, onGenerate }: TokenGeneratorProps) {
   return (
     <div className="pt-16">
       {/* input field */}
@@ -29,7 +30,8 @@ export default function TokenGenerator({ token, loading, disabled, }: TokenGener
       <AnimateOnView direction="up" delay={0.25} duration={0.6}>
         <div className="flex justify-center">
           <button
-            disabled={disabled}
+            onClick={onGenerate}
+            disabled={disabled || loading}
             className={`
                 mt-6 px-8 py-3 rounded-xl font-semibold transition-all
                 ${
