@@ -3,6 +3,7 @@ import { useState } from "react";
 import TimeLimitCard from "../TimeLimitCard/TimeLimitCard";
 import AnimateOnView from "@/app/hooks/AnimateOnView";
 import { motion } from "framer-motion";
+import TokenGenerator from "../TokenGenerator/TokenGenerator";
 
 const timeOptions = [
   {
@@ -29,6 +30,8 @@ const timeOptions = [
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
+    const [token, setToken] = useState("");
+    const [loading, setLoading] = useState(false);
     return (
         <div className="max-w-5xl mx-auto py-16 px-4">
             {/* Title */}
@@ -60,20 +63,8 @@ export default function TimeLimitSelector() {
                 ))}
             </div>
 
-            {/* Button */}
-            <AnimateOnView direction="up" delay={0.25} duration={0.6}><div className="flex justify-center"><button
-                disabled={!selected}
-                className={`
-                mt-16 px-8 py-3 rounded-xl font-semibold transition-all
-                ${
-                    selected
-                    ? "bg-primary text-black hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)]"
-                    : "bg-white/10 text-white/40 cursor-not-allowed"
-                }
-                `}
-            >
-                Generate Token
-            </button></div></AnimateOnView>
+            {/* generates token */}
+            <TokenGenerator token={token} loading={loading} disabled={!selected} />
         </div>
     )
 }
