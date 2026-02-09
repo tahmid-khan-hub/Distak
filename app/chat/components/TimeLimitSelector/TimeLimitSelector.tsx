@@ -4,29 +4,7 @@ import TimeLimitCard from "../TimeLimitCard/TimeLimitCard";
 import AnimateOnView from "@/app/hooks/AnimateOnView";
 import { motion } from "framer-motion";
 import TokenGenerator from "../TokenGenerator/TokenGenerator";
-
-const timeOptions = [
-  {
-    label: "2 Hours",
-    value: "2h",
-    description: "All messages will be permanently deleted after 2 hours. This action cannot be undone.",
-  },
-  {
-    label: "6 Hours",
-    value: "6h",
-    description: "Your chat history will be removed after 6 hours with no recovery option.",
-  },
-  {
-    label: "24 Hours",
-    value: "24h",
-    description: "Messages will stay available for 24 hours and will be deleted automatically after.",
-  },
-  {
-    label: "No Deletion",
-    value: "keep",
-    description: "Your messages will remain available unless you manually delete the chat.",
-  },
-];
+import { timeOptions } from "./components/TimeOptions";
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
