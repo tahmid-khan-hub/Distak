@@ -46,17 +46,20 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
         <div className="flex justify-center">
           <button
             onClick={onGenerate}
-            disabled={disabled || loading}
+            disabled={disabled || loading || !!token}
             className={`
                 poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all
                 ${
-                  !disabled
+                  !disabled && !loading && !token
                     ? "bg-primary text-black hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)]"
                     : "bg-white/10 text-white/40 cursor-not-allowed"
                 }
                 `}
           >
             {loading ? "Generating Token..." : "Generate Token"}
+          </button>
+          <button className="poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all bg-black text-primary border-2 border-primary hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)] ml-4">
+            Process
           </button>
         </div>
       </AnimateOnView>
