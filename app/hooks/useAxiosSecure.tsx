@@ -6,6 +6,6 @@ const axiosSecure = axios.create({
   withCredentials: true,
 });
 
-export default function useAxiosSecure() {
+export default function UseAxiosSecure() {
   return axiosSecure;
 }
