@@ -20,7 +20,7 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
           <div className="relative w-full max-w-md">
             <input
               type={showToken ? "text" : "password"}
-              value={loading ? "Generating token..." : token}
+              value={loading ? "Generating token..." : token || ""}
               readOnly
               placeholder="Your token will appear here"
               className="poppins w-full rounded-xl bg-black/40 border border-white/10 px-4 py-3 text-left text-primary tracking-widest focus:outline-none

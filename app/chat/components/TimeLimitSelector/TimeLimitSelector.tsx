@@ -13,13 +13,23 @@ export default function TimeLimitSelector() {
     const [loading, setLoading] = useState(false);
     const AxiosSecure = useAxiosSecure();
 
+    const generateToken = (length: number = 16): string => {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        const array = new Uint32Array(length);
+        window.crypto.getRandomValues(array);
+        return Array.from(array, (x) => chars[x % chars.length]).join("");
+     };
+
     const handleGenerate = async () => {
         if (!selected || loading) return;
         setLoading(true);
         setToken("");
 
+        const newToken = generateToken(16);
+        setToken(newToken);
         try {
-            const res = await AxiosSecure.post("/api/generate-token", { plan: selected });
+            const res = await AxiosSecure.post("/api/generate-token", { token: newToken, plan: selected });
             setToken(res.data.token);
         } catch (error) {
             console.log(error);
