@@ -3,14 +3,17 @@ import { useState } from "react";
 import TimeLimitCard from "../TimeLimitCard/TimeLimitCard";
 import AnimateOnView from "@/app/hooks/AnimateOnView";
 import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import TokenGenerator from "../TokenGenerator/TokenGenerator";
 import { timeOptions } from "./components/TimeOptions";
 import useAxiosSecure from "@/app/hooks/UseAxiosSecure";
+import { SuccessAlert } from "@/app/hooks/SuccessAlert";
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
     const [token, setToken] = useState("");
     const [loading, setLoading] = useState(false);
+    const [alert, setAlert] = useState(false);
     const AxiosSecure = useAxiosSecure();
 
     const generateToken = (length: number = 16): string => {
@@ -24,13 +27,13 @@ export default function TimeLimitSelector() {
     const handleGenerate = async () => {
         if (!selected || loading) return;
         setLoading(true);
-        setToken("");
 
         const newToken = generateToken(16);
         setToken(newToken);
         try {
             const res = await AxiosSecure.post("/api/generate-token", { token: newToken, plan: selected });
             setToken(res.data.token);
+            setAlert(true);
         } catch (error) {
             console.log(error);
         }  
@@ -69,6 +72,8 @@ export default function TimeLimitSelector() {
 
             {/* generates token */}
             <TokenGenerator token={token} loading={loading} disabled={!selected} onGenerate={handleGenerate} />
+            {/* alert */}
+            <AnimatePresence>{alert && <SuccessAlert title="Token Generated" description="Your token has been generated successfully." onClose={() => setAlert(false)} />}</AnimatePresence>
         </div>
     )
 }
