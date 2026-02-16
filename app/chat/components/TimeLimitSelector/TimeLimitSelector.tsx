@@ -8,12 +8,13 @@ import TokenGenerator from "../TokenGenerator/TokenGenerator";
 import { timeOptions } from "./components/TimeOptions";
 import useAxiosSecure from "@/app/hooks/UseAxiosSecure";
 import { SuccessAlert } from "@/app/hooks/SuccessAlert";
+import { ErrorAlert } from "@/app/hooks/ErrorAlert";
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
     const [token, setToken] = useState("");
     const [loading, setLoading] = useState(false);
-    const [alert, setAlert] = useState(false);
+    const [alertType, setAlertType] = useState<"success" | "error" | null>(null);
     const AxiosSecure = useAxiosSecure();
 
     const generateToken = (length: number = 16): string => {
@@ -33,9 +34,10 @@ export default function TimeLimitSelector() {
         try {
             const res = await AxiosSecure.post("/api/generate-token", { token: newToken, plan: selected });
             setToken(res.data.token);
-            setAlert(true);
+            setAlertType("success");
         } catch (error) {
             console.log(error);
+            setAlertType("error");
         }  
         setLoading(false);
     }
@@ -73,7 +75,11 @@ export default function TimeLimitSelector() {
             {/* generates token */}
             <TokenGenerator token={token} loading={loading} disabled={!selected} onGenerate={handleGenerate} />
             {/* alert */}
-            <AnimatePresence>{alert && <SuccessAlert title="Token Generated" description="Your token has been generated successfully." onClose={() => setAlert(false)} />}</AnimatePresence>
+            <AnimatePresence>
+                {alertType === "success" && ( <SuccessAlert title="Token Generated" description="Your token has been generated successfully." onClose={() => setAlertType(null)} /> )}
+
+                {alertType === "error" && ( <ErrorAlert title="Token Generation Failed" description="Failed to generate token." onClose={() => setAlertType(null)} /> )}
+            </AnimatePresence>
         </div>
     )
 }
