@@ -11,6 +11,7 @@ import { SuccessAlert } from "@/app/hooks/SuccessAlert";
 import { ErrorAlert } from "@/app/hooks/ErrorAlert";
 import { useSession } from "@/app/hooks/useSession";
 import { useQueryClient } from "@tanstack/react-query";
+import { generateToken } from "./components/GenerateToken";
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
@@ -22,14 +23,6 @@ export default function TimeLimitSelector() {
     const AxiosSecure = useAxiosSecure();
 
     const hasActiveToken = session && session.expiresAt && new Date(session.expiresAt) > new Date();
-
-    const generateToken = (length: number = 16): string => {
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        const array = new Uint32Array(length);
-        window.crypto.getRandomValues(array);
-        return Array.from(array, (x) => chars[x % chars.length]).join("");
-     };
 
     const handleGenerate = async () => {
         if (!selected || loading || hasActiveToken) return;
