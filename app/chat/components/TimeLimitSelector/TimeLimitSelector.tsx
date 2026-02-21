@@ -15,14 +15,14 @@ import { generateToken } from "./components/GenerateToken";
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
-    const [token, setToken] = useState("");
     const [loading, setLoading] = useState(false);
     const [alertType, setAlertType] = useState<"success" | "error" | null>(null);
-    const { data:session } = useSession();
+    const { data:session, isLoading } = useSession();
     const queryClient = useQueryClient();
     const AxiosSecure = useAxiosSecure();
+    const token = session?.token || "";
 
-    const hasActiveToken = session && session.expiresAt && new Date(session.expiresAt) > new Date();
+    const hasActiveToken = !isLoading && session?.expiresAt && new Date(session.expiresAt) > new Date();
 
     const handleGenerate = async () => {
         if (!selected || loading || hasActiveToken) return;
@@ -30,10 +30,9 @@ export default function TimeLimitSelector() {
         const newToken = generateToken(16);
         
         try {
-            const res = await AxiosSecure.post("/api/generate-token", { token: newToken, plan: selected });
-            setToken(res.data.token);
+            await AxiosSecure.post("/api/generate-token", { token: newToken, plan: selected });
             setAlertType("success");
-            queryClient.invalidateQueries({ queryKey: ["session"] });
+            await queryClient.invalidateQueries({ queryKey: ["session"] });
         } catch (error) {
             console.log(error);
             setAlertType("error");
