@@ -46,7 +46,7 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
         <div className="flex justify-center">
           <button
             onClick={onGenerate}
-            disabled={disabled || loading || !!token}
+            disabled={disabled || loading }
             className={`
                 poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all
                 ${

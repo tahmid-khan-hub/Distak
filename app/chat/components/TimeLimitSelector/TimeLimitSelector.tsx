@@ -9,13 +9,19 @@ import { timeOptions } from "./components/TimeOptions";
 import useAxiosSecure from "@/app/hooks/UseAxiosSecure";
 import { SuccessAlert } from "@/app/hooks/SuccessAlert";
 import { ErrorAlert } from "@/app/hooks/ErrorAlert";
+import { useSession } from "@/app/hooks/useSession";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function TimeLimitSelector() {
     const [selected, setSelected] = useState<string | null>(null);
     const [token, setToken] = useState("");
     const [loading, setLoading] = useState(false);
     const [alertType, setAlertType] = useState<"success" | "error" | null>(null);
+    const { data:session } = useSession();
+    const queryClient = useQueryClient();
     const AxiosSecure = useAxiosSecure();
+
+    const hasActiveToken = session && session.expiresAt && new Date(session.expiresAt) > new Date();
 
     const generateToken = (length: number = 16): string => {
         const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -26,15 +32,15 @@ export default function TimeLimitSelector() {
      };
 
     const handleGenerate = async () => {
-        if (!selected || loading) return;
+        if (!selected || loading || hasActiveToken) return;
         setLoading(true);
-
         const newToken = generateToken(16);
-        setToken(newToken);
+        
         try {
             const res = await AxiosSecure.post("/api/generate-token", { token: newToken, plan: selected });
             setToken(res.data.token);
             setAlertType("success");
+            queryClient.invalidateQueries({ queryKey: ["session"] });
         } catch (error) {
             console.log(error);
             setAlertType("error");
@@ -73,7 +79,7 @@ export default function TimeLimitSelector() {
             </div>
 
             {/* generates token */}
-            <TokenGenerator token={token} loading={loading} disabled={!selected} onGenerate={handleGenerate} />
+            <TokenGenerator token={token} loading={loading} disabled={hasActiveToken} onGenerate={handleGenerate} />
             {/* alert */}
             <AnimatePresence>
                 {alertType === "success" && ( <SuccessAlert title="Token Generated" description="Your token has been generated successfully." onClose={() => setAlertType(null)} /> )}
