@@ -1,5 +1,6 @@
 "use client";
 import AnimateOnView from "@/app/hooks/AnimateOnView";
+import Link from "next/link";
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
@@ -58,9 +59,9 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
           >
             {loading ? "Generating Token..." : "Generate Token"}
           </button>
-          {token && <button className="poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all bg-black text-primary border-2 border-primary hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)] hover:bg-primary hover:text-black ml-4">
+          {token && <Link href="/conversations"><button className="poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all bg-black text-primary border-2 border-primary hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)] hover:bg-primary hover:text-black ml-4">
             Proceed
-          </button>}
+          </button></Link>}
         </div>
       </AnimateOnView>
     </div>
