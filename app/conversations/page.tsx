@@ -1,7 +1,7 @@
 export default function ConversationsPage() {
-    return (
-        <div>
-            <h2 className="text-white">conversations page</h2>
-        </div>
-    )
+  return (
+    <div className="h-full flex items-center justify-center text-muted-foreground">
+      Select a conversation to start chatting
+    </div>
+  );
 }
