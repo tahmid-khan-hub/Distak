@@ -23,7 +23,9 @@ export default function ResizableSidebar({
     };
 
     const handleMouseUp = () => {
-      isResizing.current = false;
+        isResizing.current = false;
+        document.body.style.userSelect = ""; // restore selection
+        document.body.style.cursor = ""; // restore cursor
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -39,14 +41,20 @@ export default function ResizableSidebar({
     <div
       ref={sidebarRef}
       style={{ width }}
-      className="relative border-r bg-background h-full "
+      className="relative h-full shrink-0 border-r bg-background"
     >
       {children}
 
       {/* Drag Handle */}
       <div
-        onMouseDown={() => (isResizing.current = true)}
-        className="absolute top-0 right-0 h-full w-1 cursor-col-resize bg-border hover:bg-primary transition"
+        onMouseDown={() => {
+          isResizing.current = true;
+
+          // Prevent text selection while resizing
+          document.body.style.userSelect = "none";
+          document.body.style.cursor = "col-resize";
+        }}
+        className="absolute top-0 right-0 h-full w-1 cursor-col-resize bg-border hover:bg-primary transition active:bg-primary"
       />
     </div>
   );
