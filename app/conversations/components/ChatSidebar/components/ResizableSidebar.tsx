@@ -9,13 +9,15 @@ export default function ResizableSidebar({
 }) {
   const [width, setWidth] = useState(300);
   const isResizing = useRef(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isResizing.current) return;
+      if (!isResizing.current || !sidebarRef.current) return;
 
-      const newWidth = e.clientX;
-      if (newWidth > 200 && newWidth < 600) {
+      const rect = sidebarRef.current.getBoundingClientRect();
+      const newWidth = e.clientX - rect.left;
+      if (newWidth > 300 && newWidth < 800) {
         setWidth(newWidth);
       }
     };
@@ -35,8 +37,9 @@ export default function ResizableSidebar({
 
   return (
     <div
+      ref={sidebarRef}
       style={{ width }}
-      className="relative border-r bg-background"
+      className="relative border-r bg-background h-full "
     >
       {children}
 

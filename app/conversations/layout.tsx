@@ -1,4 +1,4 @@
-import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import ChatSidebar from "./components/ChatSidebar/ChatSidebar";
 import ResizableSidebar from "./components/ChatSidebar/components/ResizableSidebar";
 
@@ -9,11 +9,9 @@ export default function ConversationsLayout({
 }) {
   return (
     <SidebarProvider>
-      <div className="flex-1 h-screen overflow-hidden">
-        <Sidebar className="border-r">
-          <ResizableSidebar><ChatSidebar /></ResizableSidebar>
-        </Sidebar>
-        <main className="flex-1 bg-background h-screen">
+      <div className="flex h-screen w-full overflow-hidden">
+        <ResizableSidebar><ChatSidebar /></ResizableSidebar>
+        <main className="flex-1 min-w-0 h-full overflow-auto bg-background">
           {children}
         </main>
       </div>
