@@ -11,7 +11,7 @@ export default function ConversationsLayout({
     <SidebarProvider>
       <div className="flex h-screen w-full overflow-hidden">
         <ResizableSidebar><ChatSidebar /></ResizableSidebar>
-        <main className="flex-1 min-w-0 h-full overflow-auto bg-background">
+        <main className="flex-1 min-w-0 h-full overflow-auto">
           {children}
         </main>
       </div>

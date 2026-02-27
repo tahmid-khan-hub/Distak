@@ -41,7 +41,7 @@ export default function ResizableSidebar({
     <div
       ref={sidebarRef}
       style={{ width }}
-      className="relative h-full shrink-0 border-r bg-background"
+      className="relative h-full shrink-0 border-r"
     >
       {children}
 

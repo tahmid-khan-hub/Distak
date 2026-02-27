@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 export default function ChatSidebarContent() {
   return (
     <>
-      <SidebarHeader className="p-4 border-b space-y-3">
+      <div><SidebarHeader className="p-4 border-b space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Messages</h2>
           <Button size="sm">New</Button>
@@ -31,7 +31,7 @@ export default function ChatSidebarContent() {
             </div>
           </div>
         ))}
-      </SidebarContent>
+      </SidebarContent></div>
     </>
   )
 }
