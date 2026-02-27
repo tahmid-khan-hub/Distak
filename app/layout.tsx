@@ -27,18 +27,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <QueryProvider>
-          {/* Background Wrapper */}
-          <div className="min-h-screen w-full relative">
-            {/* Emerald Void Background */}
-            <div
-              className="absolute inset-0 -z-10"
-              style={{
-                background: "radial-gradient(125% 125% at 50% 90%, #000000 40%, #072607 100%)",
-              }}
-            />
-            {/* Content */}
-            {children}
-          </div>
+          {/* Dark Base Background */}
+          <div className="fixed inset-0 -z-20 bg-black" />
+
+          {/* Fixed Spotlight Background */}
+          <div
+            className="fixed inset-0 -z-10 pointer-events-none"
+            style={{
+            background: ` radial-gradient( circle at center, rgba(111, 199, 161, 0.18) 0%, rgba(111, 199, 161, 0.10) 25%, rgba(0, 0, 0, 0) 60% ) `,
+            }}
+          />
+
+          {/* Main Content */}
+          <div className="relative z-10 ">{children}</div>
         </QueryProvider>
       </body>
     </html>
