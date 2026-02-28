@@ -8,13 +8,12 @@ export default function Navbar() {
     if(isLoading) { return <div>Loading...</div> }
     
     return (
-        <div>
-            {session ? 
+        <div className="flex justify-end py-3">
+            {session && 
                 <div>
-                    <Link href={"/conversations"}><Button className=" bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(120,120,120,0.3)]">Resume Chat</Button></Link>
-                </div> : 
-                <div>
-                    <Link href={"/conversations"}><Button className=" bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(120,120,120,0.3)]">Generate Token</Button></Link>
+                    <Link href={"/conversations"}>
+                    <Button className="bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:shadow-[0_4px_15px_rgba(120,120,120,0.3)]">Conversations</Button>
+                    </Link>
                 </div>
             }
         </div>
