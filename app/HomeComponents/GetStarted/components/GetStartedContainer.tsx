@@ -16,7 +16,7 @@ const GetStartedContainer = ({ items }: GetStartedContainerProps) => {
                         className="poppins p-6 rounded-lg shadow-lg border-2 border-gray-700 hover:border-[#6FC7A1] transition-colors duration-300 h-full">
                         <div className="text-blue-400 mb-5">{item.icon}</div>
                         <h3 className="text-xl font-bold text-gray-200 mb-2">{item.title}</h3>
-                        <p className="text-gray-200">{item.description}</p>
+                        <p className="text-gray-300">{item.description}</p>
                     </motion.div>
                 </AnimateOnView>
             ))}

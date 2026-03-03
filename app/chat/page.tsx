@@ -4,7 +4,7 @@ import TimeLimitSelector from "./components/TimeLimitSelector/TimeLimitSelector"
 
 const ChatPage = () => {
     return (
-        <div>
+        <div className="max-w-5xl mx-auto">
             <Logo />
             <TimeLimitSelector />
         </div>

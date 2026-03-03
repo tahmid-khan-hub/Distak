@@ -24,8 +24,8 @@ const TimeLimitCard = ({
         }
       `}
     >
-        <h3 className="inter text-2xl font-semibold text-white mb-5">{label}</h3>
-        <p className="poppins text-md text-gray-400">{description}</p>
+        <h3 className="inter text-2xl font-semibold text-gray-200 mb-5">{label}</h3>
+        <p className="poppins text-md text-gray-300">{description}</p>
     </button>
   );
 };
