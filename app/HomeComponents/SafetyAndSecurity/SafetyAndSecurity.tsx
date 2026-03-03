@@ -6,7 +6,7 @@ import AnimateOnView from "@/app/hooks/AnimateOnView";
 
 const SafetyAndSecurity = () => {
   return (
-    <div className="py-16">
+    <div className="py-24">
       <div className="max-w-4xl mx-auto text-center">
         {/* icon */}
         <AnimateOnView direction="up" delay={0.25} duration={0.6}>

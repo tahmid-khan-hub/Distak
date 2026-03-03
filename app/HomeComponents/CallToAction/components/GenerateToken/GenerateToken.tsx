@@ -44,7 +44,7 @@ export default function GenerateToken() {
 
         {/* Description */}
         <AnimateOnView direction="up" delay={0.4} duration={0.8}>
-          <p className="poppins text-center text-gray-400 max-w-lg mx-auto mt-3 text-lg leading-relaxed">
+          <p className="poppins text-center text-gray-200 max-w-lg mx-auto mt-3 text-lg leading-relaxed">
             Generate a unique token and start chatting instantly.
           </p>
         </AnimateOnView>

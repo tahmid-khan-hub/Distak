@@ -4,15 +4,15 @@ import Link from "next/link";
 
 export default function ResumeChat() {
   return (
-    <div className="py-16">
+    <div className="py-24">
       <AnimateOnView direction="up" delay={0.25} duration={0.6}>
-        <h2 className="inter text-4xl text-center font-bold text-white">
+        <h2 className="inter text-4xl text-center font-bold  bg-linear-to-r from-primary to-primary/10 bg-clip-text text-transparent">
           Welcome Back
         </h2>
       </AnimateOnView>
 
       <AnimateOnView direction="up" delay={0.35} duration={0.8}>
-        <p className="poppins mt-2.5 text-center text-gray-400 max-w-xl mx-auto">
+        <p className="poppins mt-2.5 text-center text-gray-200 max-w-xl mx-auto">
           Your chat is ready. Continue where you left off.
         </p>
       </AnimateOnView>

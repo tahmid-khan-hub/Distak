@@ -36,13 +36,13 @@ const items = [
 
 const FaQ = () => {
   return (
-    <div className="text-white py-16">
-      <h2 className="inter text-4xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+    <div className="text-gray-200 py-24">
+      <h2 className="inter text-4xl font-bold text-center  bg-linear-to-r from-primary to-primary/10 bg-clip-text text-transparent mb-8">Frequently Asked Questions</h2>
       <Accordion
         type="single"
         collapsible
         defaultValue="item-1"
-        className="poppins text-[#b6e9d3] max-w-190 mx-auto"
+        className="poppins max-w-190 mx-auto"
       >
         {items.map((item) => (
           <AccordionItem key={item.value} value={item.value}>
