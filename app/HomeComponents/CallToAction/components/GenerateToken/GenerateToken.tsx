@@ -8,11 +8,7 @@ export default function GenerateToken() {
   return (
     <section className="relative py-24 px-6 flex items-center justify-center overflow-hidden">
 
-      {/* Background Glow Effects */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/30 blur-3xl rounded-full"></div>
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-primary/30 blur-3xl rounded-full"></div>
-
-      {/* Glass Card */}
+      {/* Card */}
       <div className="">
 
         {/* Icon */}
@@ -40,7 +36,7 @@ export default function GenerateToken() {
         {/* Heading */}
         <AnimateOnView direction="up" delay={0.3} duration={0.7}>
           <h2 className="inter text-center text-4xl font-bold 
-            bg-linear-to-r from-primary to-primary/70 
+            bg-linear-to-r from-primary to-primary/10 
             bg-clip-text text-transparent">
             Start your first chat
           </h2>
