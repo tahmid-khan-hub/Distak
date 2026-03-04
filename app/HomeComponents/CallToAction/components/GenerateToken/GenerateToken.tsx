@@ -3,6 +3,7 @@ import AnimateOnView from "@/app/hooks/AnimateOnView";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function GenerateToken() {
   return (
@@ -53,9 +54,9 @@ export default function GenerateToken() {
         <AnimateOnView direction="up" delay={0.45} duration={1.0}>
           <div className="poppins mt-8 flex justify-center">
             <Link href="/chat">
-              <button className=" px-8 py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_15px_rgba(120,120,120,0.3)] ">
+              <Button className="px-12 py-6.5 text-[18px] font-semibold ">
                 Generate a Token
-              </button>
+              </Button>
             </Link>
           </div>
         </AnimateOnView>

@@ -1,5 +1,6 @@
 "use client";
 import AnimateOnView from "@/app/hooks/AnimateOnView";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
@@ -45,23 +46,24 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
       {/* Button */}
       <AnimateOnView direction="up" delay={0.25} duration={0.6}>
         <div className="flex justify-center">
-          <button
+          <Button
             onClick={onGenerate}
             disabled={disabled || loading }
             className={`
-                poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all
+                poppins mt-6 text-[16px] px-8 py-5 font-semibold
                 ${
                   !disabled && !loading && !token
-                    ? "bg-primary text-black hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)]"
+                    ? ""
                     : "bg-white/10 text-white/40 cursor-not-allowed"
                 }
                 `}
           >
             {loading ? "Generating Token..." : "Generate Token"}
-          </button>
-          {token && <Link href="/conversations"><button className="poppins mt-6 px-8 py-3 rounded-xl font-semibold transition-all bg-black text-primary border-2 border-primary hover:scale-105 hover:shadow-[0_0_20px_rgba(111,199,161,0.7)] hover:bg-primary hover:text-black ml-4">
+          </Button>
+          {token && <Link href="/conversations">
+          <Button className="poppins mt-6 px-8 py-3 font-semibold ml-4">
             Proceed
-          </button></Link>}
+          </Button></Link>}
         </div>
       </AnimateOnView>
     </div>

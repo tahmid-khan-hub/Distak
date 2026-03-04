@@ -12,7 +12,7 @@ export default function Navbar() {
             {session && 
                 <div>
                     <Link href={"/conversations"}>
-                    <Button className="bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:shadow-[0_4px_15px_rgba(120,120,120,0.3)]">Conversations</Button>
+                    <Button className="">Conversations</Button>
                     </Link>
                 </div>
             }
