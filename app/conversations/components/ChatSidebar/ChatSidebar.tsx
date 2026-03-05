@@ -3,7 +3,7 @@ import ChatSidebarContent from "./components/ChatSidebarContent"
 
 export default function ChatSidebar() {
   return (
-    <div>
+    <div className="h-full flex flex-col">
       <ChatSidebarContent />
     </div>
   )

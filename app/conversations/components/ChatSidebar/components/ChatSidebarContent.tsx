@@ -7,10 +7,10 @@ import Logo from "@/app/chat/components/logo/logo"
 export default function ChatSidebarContent() {
   return (
     <>
-      <div>
+      <div className="h-full flex flex-col">
         {/* Logo */}
         <div className="pl-2"><Logo /></div>
-        <SidebarHeader className="p-4 border-b space-y-3">
+        <SidebarHeader className="p-4 border-b border-b-gray-600 space-y-3 shrink-0">
         <div className="flex items-center justify-between">
           <h2 className="text-xl text-gray-200 font-semibold">Messages</h2>
           <Button size="sm">New</Button>
@@ -20,12 +20,11 @@ export default function ChatSidebarContent() {
       </SidebarHeader>
 
       <SidebarContent className="flex-1 overflow-y-auto p-1 space-y-1">
-        {[1, 2, 3, 4, 5].map((item) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
           <div
             key={item}
             className="flex items-center gap-3 p-3 hover:bg-primary/20 cursor-pointer transition border-b border-b-gray-800"
           >
-            
 
             <div className="flex-1 overflow-hidden">
               <p className="font-medium text-gray-200 truncate">User {item}</p>

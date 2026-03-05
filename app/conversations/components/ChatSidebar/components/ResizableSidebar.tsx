@@ -41,7 +41,7 @@ export default function ResizableSidebar({
     <div
       ref={sidebarRef}
       style={{ width }}
-      className="relative h-full shrink-0 border-r"
+      className="relative h-full shrink-0 "
     >
       {children}
 
@@ -54,7 +54,7 @@ export default function ResizableSidebar({
           document.body.style.userSelect = "none";
           document.body.style.cursor = "col-resize";
         }}
-        className="absolute top-0 right-0 h-full w-1 cursor-col-resize bg-border hover:bg-primary transition active:bg-primary"
+        className="absolute top-0 right-0 h-full w-0.5 cursor-col-resize  bg-gray-600 transition "
       />
     </div>
   );
