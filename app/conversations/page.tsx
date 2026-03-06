@@ -1,7 +1,24 @@
+"use client"
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function ConversationsPage() {
   return (
-    <div className="h-full flex items-center justify-center">
-      <h1 className="text-xl text-gray-400">Select a conversation to start chatting</h1>
+    <div className="h-full flex flex-col items-center justify-center">
+      <motion.div
+        initial={{ filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" }}
+        animate={{ filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" }}
+        whileHover={{ filter: "drop-shadow(0px 0px 20px rgba(111, 199, 161, 0.7))", }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+      >
+        <Image 
+        src={"/assets/chat_icon.png"}
+        alt="chat_icon"
+        width={100}
+        height={100}
+        />
+      </motion.div>
+      <h1 className="text-xl text-gray-400 mt-4">Select a conversation to start chatting</h1>
     </div>
   );
 }
