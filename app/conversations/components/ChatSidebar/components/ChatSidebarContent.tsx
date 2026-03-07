@@ -4,17 +4,26 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Logo from "@/app/chat/components/logo/logo"
 import Link from "next/link"
+import { useState } from "react"
+import NewConversationModal from "./NewConversationModal"
 
 export default function ChatSidebarContent() {
+  const [open, setOpen] = useState(false);
+
+  const FindNewConversation = async() => {
+    setOpen(true);
+  }
+
   return (
     <>
+      <NewConversationModal open={open} setOpen={setOpen} />
       <div className="h-full flex flex-col">
         {/* Logo */}
         <div className="pl-2"><Logo /></div>
         <SidebarHeader className="p-4 border-b border-b-gray-600 space-y-3 shrink-0">
         <div className="flex items-center justify-between">
           <h2 className="text-xl text-gray-200 font-semibold">Messages</h2>
-          <Button size="sm">New</Button>
+          <Button onClick={FindNewConversation} size="sm">New</Button>
         </div>
 
         <Input className="text-gray-200" placeholder="Search conversations..." />
