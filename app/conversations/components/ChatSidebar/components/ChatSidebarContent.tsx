@@ -8,16 +8,15 @@ import { useState } from "react"
 import NewConversationModal from "./NewConversationModal"
 import { useQuery } from "@tanstack/react-query"
 import UseAxiosSecure from "@/app/hooks/UseAxiosSecure"
+import { Conversation } from "@/types/chat"
 
 export default function ChatSidebarContent() {
   const [open, setOpen] = useState(false);
   const axiosSecure = UseAxiosSecure();
 
-  const FindNewConversation = async() => {
-    setOpen(true);
-  }
+  const FindNewConversation = () => { setOpen(true); }
 
-  const { data:conversations = [], isLoading } = useQuery({
+  const { data:conversations = [], isLoading } = useQuery<Conversation[]>({
     queryKey: ["conversations"],
     queryFn: async() => {
       const res = await axiosSecure.get("/api/chat")
@@ -48,17 +47,13 @@ export default function ChatSidebarContent() {
             <p>no conversations yet.</p>
           )}
 
-          {conversations.map((conv: any) => (
-            <Link key={conv._id} href={`/conversations/${conv._id}`}>
+          {conversations.map((conv) => (
+            <Link key={conv.id} href={`/conversations/${conv.id}`}>
               <div className="flex items-center gap-3 p-3 hover:bg-primary/20 cursor-pointer transition border-b border-b-gray-800">
 
                 <div className="flex-1 overflow-hidden">
                   <p className="font-medium text-gray-200 truncate">
-                    {conv.name || "Unknown User"}
-                  </p>
-
-                  <p className="text-sm text-gray-400 truncate">
-                    {conv.lastMessage || "Start conversation"}
+                    {conv.nickname || "Unknown User"}
                   </p>
                 </div>
 
