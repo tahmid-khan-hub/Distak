@@ -19,17 +19,17 @@ export default function NewConversationModal({
 }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md bg-black border-gray-500 text-gray-200">
         <DialogHeader>
-          <DialogTitle>Start New Conversation</DialogTitle>
-          <DialogDescription>Enter a valid token</DialogDescription>
+          <DialogTitle className="text-2xl mb-5">Start New Conversation</DialogTitle>
+          <DialogDescription className="text-lg">Enter a valid token</DialogDescription>
         </DialogHeader>
 
-        <div className="py-4">{/* Search UI here */}</div>
+        <input placeholder="ex:GrrABddYrLHUSGoa" className="p-2 border rounded-md mb-5"/>
 
         <DialogFooter>
-          <Button variant="outline" onClick={() => setOpen(false)}>
-            Cancel
+          <Button>
+            Enter
           </Button>
         </DialogFooter>
       </DialogContent>
