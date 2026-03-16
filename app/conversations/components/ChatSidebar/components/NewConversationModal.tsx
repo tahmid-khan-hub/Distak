@@ -1,5 +1,6 @@
 "use client";
 import UseAxiosSecure from "@/app/hooks/UseAxiosSecure";
+import { useSession } from "@/app/hooks/useSession";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, } from "@/components/ui/dialog";
 import { ConversationResponse, FoundUser } from "@/types/chat";
@@ -9,8 +10,10 @@ import { useState } from "react";
 export default function NewConversationModal({ open, setOpen, }: {
   open: boolean; setOpen: (open: boolean) => void; }) {
 
+  const { data: session } = useSession();
   const [token, setToken] = useState("");
   const [foundUser, setFoundUser] = useState<FoundUser | null>(null);
+  const [searchError, setSearchError] = useState<string | null>(null);
   const queryClient = useQueryClient();
   const axiosSecure = UseAxiosSecure();
 
@@ -20,9 +23,8 @@ export default function NewConversationModal({ open, setOpen, }: {
       const res = await axiosSecure.get(`/api/chat/search/${token}`)
       return res.data as FoundUser
     },
-    onSuccess: (user) => {
-      setFoundUser(user)
-    },
+    onSuccess: (user) => { setFoundUser(user) },
+    onError: () => { setSearchError("No user found with this token") }
   })
 
   // create/get conversation
@@ -47,8 +49,14 @@ export default function NewConversationModal({ open, setOpen, }: {
           <DialogDescription className="text-lg">Enter a valid token</DialogDescription>
         </DialogHeader>
 
-        <input value={token} onChange={(e) => setToken(e.target.value)} 
+        <input value={token} onChange={(e) => setToken(e.target.value) }
         placeholder="ex:GrrABddYrLHUSGoa" className="p-2 border rounded-md mb-5"/>
+
+        {/* You cannot start a conversation with yourself */}
+        { session?.token === token && <p className="text-lg font-semibold text-red-500 -mt-5">You cannot start a conversation with yourself</p> }
+
+        {/* No user found */}
+        { searchError ? <p className="text-lg font-semibold text-red-500 -mt-5">{searchError}</p> : "" }
 
         {/* Show found user */}
         {foundUser && (
@@ -65,7 +73,7 @@ export default function NewConversationModal({ open, setOpen, }: {
         )}
 
         <DialogFooter>
-          <Button disabled={isSearching || !token.trim()} onClick={ () => handleSearch(token) }>
+          <Button disabled={ isSearching || !token.trim() || session?.token === token } onClick={ () => handleSearch(token) }>
             {isSearching ? "Searching..." : "Enter"}
           </Button>
         </DialogFooter>
