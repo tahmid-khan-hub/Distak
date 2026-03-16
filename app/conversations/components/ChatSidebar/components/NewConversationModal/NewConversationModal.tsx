@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { ConversationResponse, FoundUser } from "@/types/chat";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
+import ConversationModalFeedback from "./ConversationModalFeedback";
 
 export default function NewConversationModal({ open, setOpen, }: {
   open: boolean; setOpen: (open: boolean) => void; }) {
@@ -52,25 +53,13 @@ export default function NewConversationModal({ open, setOpen, }: {
         <input value={token} onChange={(e) => setToken(e.target.value) }
         placeholder="ex:GrrABddYrLHUSGoa" className="p-2 border rounded-md mb-5"/>
 
-        {/* You cannot start a conversation with yourself */}
-        { session?.token === token && <p className="text-lg font-semibold text-red-500 -mt-5">You cannot start a conversation with yourself</p> }
-
-        {/* No user found */}
-        { searchError ? <p className="text-lg font-semibold text-red-500 -mt-5">{searchError}</p> : "" }
-
-        {/* Show found user */}
-        {foundUser && (
-          <div className="flex items-center justify-between p-3 border border-gray-600 rounded-md mb-3">
-            <p className="text-gray-200">{foundUser.nickname}</p>
-            <Button
-              size="sm"
-              disabled={isStarting}
-              onClick={() => startConversation(foundUser.id)}
-            >
-              {isStarting ? "Starting..." : "Start Chat"}
-            </Button>
-          </div>
-        )}
+        <ConversationModalFeedback
+          isSelf={session?.token === token}
+          searchError={searchError}
+          foundUser={foundUser}
+          isStarting={isStarting}
+          onStartConversation={startConversation}
+        />
 
         <DialogFooter>
           <Button disabled={ isSearching || !token.trim() || session?.token === token } onClick={ () => handleSearch(token) }>
