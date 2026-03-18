@@ -9,6 +9,7 @@ import NewConversationModal from "../NewConversationModal/NewConversationModal"
 import { useQuery } from "@tanstack/react-query"
 import UseAxiosSecure from "@/app/hooks/UseAxiosSecure"
 import { Conversation } from "@/types/chat"
+import NoConversation from "./components/NoConversation"
 
 export default function ChatSidebarContent() {
   const [open, setOpen] = useState(false);
@@ -45,9 +46,7 @@ export default function ChatSidebarContent() {
         <SidebarContent className="flex-1 overflow-y-auto p-1 space-y-1">
           {isLoading && <p className="text-red-500">loading...</p>}
 
-          {!isLoading && conversations.length === 0 && (
-            <p className="text-blue-500">no conversations yet.</p>
-          )}
+          {!isLoading && conversations.length === 0 && ( <NoConversation /> )}
 
           {conversations.map((conv) => (
             <Link key={conv.id} href={`/conversations/${conv.id}`}>

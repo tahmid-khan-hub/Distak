@@ -1,5 +1,5 @@
 "use client"
-import ChatSidebarContent from "./components/ChatSidebarContent"
+import ChatSidebarContent from "./components/ChatSidebarContent/ChatSidebarContent"
 
 export default function ChatSidebar() {
   return (
