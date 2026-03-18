@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query"
 import UseAxiosSecure from "@/app/hooks/UseAxiosSecure"
 import { Conversation } from "@/types/chat"
 import NoConversation from "./components/NoConversation"
+import SidebarContentSkeletion from "./components/SidebarContentSkeleton"
 
 export default function ChatSidebarContent() {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function ChatSidebarContent() {
     }
   })
 
-  if(isLoading) return <p className="text-white">Loading...</p>
+  if(isLoading) return <SidebarContentSkeletion />;
 
   return (
     <>
@@ -34,7 +35,7 @@ export default function ChatSidebarContent() {
       <div className="h-full flex flex-col">
         {/* Logo */}
         <div className="pl-2"><Logo /></div>
-        <SidebarHeader className="p-4 border-b border-b-gray-600 space-y-3 shrink-0">
+        <SidebarHeader className="p-4 border-b border-b-gray-200 space-y-3 shrink-0">
           <div className="flex items-center justify-between">
             <h2 className="text-xl text-gray-200 font-semibold">Messages</h2>
             <Button onClick={FindNewConversation} size="sm">New</Button>
@@ -44,8 +45,6 @@ export default function ChatSidebarContent() {
         </SidebarHeader>
 
         <SidebarContent className="flex-1 overflow-y-auto p-1 space-y-1">
-          {isLoading && <p className="text-red-500">loading...</p>}
-
           {!isLoading && conversations.length === 0 && ( <NoConversation /> )}
 
           {conversations.map((conv) => (

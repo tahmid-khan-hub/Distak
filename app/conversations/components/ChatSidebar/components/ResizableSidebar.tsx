@@ -54,7 +54,7 @@ export default function ResizableSidebar({
           document.body.style.userSelect = "none";
           document.body.style.cursor = "col-resize";
         }}
-        className="absolute top-0 right-0 h-full w-0.5 cursor-col-resize  bg-gray-600 transition "
+        className="absolute top-0 right-0 h-full w-0.5 cursor-col-resize  bg-gray-200 transition "
       />
     </div>
   );
