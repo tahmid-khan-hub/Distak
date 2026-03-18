@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import Logo from "@/app/chat/components/logo/logo"
 import Link from "next/link"
 import { useState } from "react"
-import NewConversationModal from "./NewConversationModal/NewConversationModal"
+import NewConversationModal from "../NewConversationModal/NewConversationModal"
 import { useQuery } from "@tanstack/react-query"
 import UseAxiosSecure from "@/app/hooks/UseAxiosSecure"
 import { Conversation } from "@/types/chat"
@@ -24,6 +24,8 @@ export default function ChatSidebarContent() {
     }
   })
 
+  if(isLoading) return <p className="text-white">Loading...</p>
+
   return (
     <>
       {/* modal */}
@@ -41,10 +43,10 @@ export default function ChatSidebarContent() {
         </SidebarHeader>
 
         <SidebarContent className="flex-1 overflow-y-auto p-1 space-y-1">
-          {isLoading && <p>loading...</p>}
+          {isLoading && <p className="text-red-500">loading...</p>}
 
           {!isLoading && conversations.length === 0 && (
-            <p>no conversations yet.</p>
+            <p className="text-blue-500">no conversations yet.</p>
           )}
 
           {conversations.map((conv) => (
