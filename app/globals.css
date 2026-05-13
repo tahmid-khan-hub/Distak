@@ -7,9 +7,11 @@
 .poppins{
   font-family: var(--font-poppins);
 }
-
 .inter {
-    font-family: var(--font-inter);
+  font-family: var(--font-inter);
+}
+.lobsterTwo{
+  font-family: var(--font-lobster-two);
 }
 
 @theme inline {
