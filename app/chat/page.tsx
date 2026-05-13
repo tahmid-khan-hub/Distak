@@ -1,5 +1,5 @@
 "use client";
-import Logo from "./components/logo/logo";
+import Logo from "../Logo/logo";
 import TimeLimitSelector from "./components/TimeLimitSelector/TimeLimitSelector";
 
 const ChatPage = () => {

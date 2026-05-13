@@ -2,7 +2,6 @@
 import { SidebarContent, SidebarHeader } from "@/components/ui/sidebar"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import Logo from "@/app/chat/components/logo/logo"
 import Link from "next/link"
 import { useState } from "react"
 import NewConversationModal from "../NewConversationModal/NewConversationModal"
@@ -11,6 +10,7 @@ import UseAxiosSecure from "@/app/hooks/UseAxiosSecure"
 import { Conversation } from "@/types/chat"
 import NoConversation from "./components/NoConversation"
 import SidebarContentSkeletion from "./components/SidebarContentSkeleton"
+import Logo from "@/app/Logo/logo";
 
 export default function ChatSidebarContent() {
   const [open, setOpen] = useState(false);

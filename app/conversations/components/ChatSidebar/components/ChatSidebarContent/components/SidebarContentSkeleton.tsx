@@ -1,4 +1,4 @@
-import Logo from "@/app/chat/components/logo/logo";
+import Logo from "@/app/Logo/logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SidebarContent, SidebarHeader } from "@/components/ui/sidebar";
