@@ -46,7 +46,7 @@ const GetStarted = () => {
     return (
         <div className="py-24">
             <AnimateOnView direction="up" delay={0.25} duration={0.6}>
-              <h2 className="inter text-4xl  bg-linear-to-r from-primary to-primary/10 bg-clip-text text-transparent text-center font-bold mb-7">Getting Started</h2>
+              <h2 className="inter text-4xl text-center text-gray-200 mb-10">Getting <span className="text-primary font-bold ">Started</span></h2>
             </AnimateOnView>
             <div><GetStartedContainer items={getStartedData} /></div>
         </div>
