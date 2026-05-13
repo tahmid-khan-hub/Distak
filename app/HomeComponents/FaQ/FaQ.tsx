@@ -36,18 +36,18 @@ const items = [
 
 const FaQ = () => {
   return (
-    <div className="text-gray-200 py-24">
-      <h2 className="inter text-4xl font-bold text-center  bg-linear-to-r from-primary to-primary/10 bg-clip-text text-transparent mb-8">Frequently Asked Questions</h2>
+    <div className=" py-24">
+      <h2 className="inter text-5xl text-gray-200 font-bold text-center mb-16">Frequently Asked</h2>
       <Accordion
         type="single"
         collapsible
         defaultValue="item-1"
-        className="poppins max-w-190 mx-auto"
+        className="poppins max-w-200 mx-auto border-b border-b-gray-700"
       >
         {items.map((item) => (
-          <AccordionItem key={item.value} value={item.value}>
-            <AccordionTrigger>{item.trigger}</AccordionTrigger>
-            <AccordionContent>{item.content}</AccordionContent>
+          <AccordionItem key={item.value} value={item.value} className="border-b border-b-gray-700">
+            <AccordionTrigger className="text-gray-200">{item.trigger}</AccordionTrigger>
+            <AccordionContent className="text-gray-400">{item.content}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
