@@ -8,7 +8,7 @@ import SafetyAndSecurity from "./HomeComponents/SafetyAndSecurity/SafetyAndSecur
 
 export default function Home() {
   return (
-    <div className="max-w-275 mx-auto px-4">
+    <div className="">
       <Navbar />
       <Banner />
       <GetStarted />

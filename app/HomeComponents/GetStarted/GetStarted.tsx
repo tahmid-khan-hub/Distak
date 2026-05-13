@@ -17,38 +17,40 @@ const getStartedData: GetStartedItem[] = [
     title: "Generate Token",
     description:
       "Create a unique token to start a secure and temporary conversation.",
-    icon: <FiKey className="text-[#6FC7A1]" size={28} />,
+    icon: <FiKey className="text-green-300" size={28} />,
   },
   {
     id: 2,
     title: "Choose a Plan",
     description:
       "Select a duration (2h, 6h, 24h). After this time, all chats are automatically deleted.",
-    icon: <FiClock className="text-[#6FC7A1]" size={28} />,
+    icon: <FiClock className="text-green-300" size={28} />,
   },
   {
     id: 3,
     title: "Enter Token",
     description:
       "Paste the token of the person you want to chat with in the search bar.",
-    icon: <FiSearch className="text-[#6FC7A1]" size={28} />,
+    icon: <FiSearch className="text-green-300" size={28} />,
   },
   {
     id: 4,
     title: "Start Chatting",
     description:
       "Begin your conversation instantly with end-to-end privacy.",
-    icon: <FiMessageSquare className="text-[#6FC7A1]" size={28} />,
+    icon: <FiMessageSquare className="text-green-300" size={28} />,
   },
 ];
 
 const GetStarted = () => {
     return (
-        <div className="py-24">
-            <AnimateOnView direction="up" delay={0.25} duration={0.6}>
-              <h2 className="inter text-4xl text-center text-gray-200 mb-10">Getting <span className="text-primary font-bold ">Started</span></h2>
-            </AnimateOnView>
-            <div><GetStartedContainer items={getStartedData} /></div>
+        <div className="py-24 bg-neutral-900">
+            <div className="max-w-275 mx-auto px-4">
+              <AnimateOnView direction="up" delay={0.25} duration={0.6}>
+                <h2 className="inter text-5xl text-center text-gray-200 mb-16">Getting <span className="text-primary font-bold ">Started</span></h2>
+              </AnimateOnView>
+              <div><GetStartedContainer items={getStartedData} /></div>
+            </div>
         </div>
     );
 };

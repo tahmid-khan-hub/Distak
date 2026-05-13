@@ -11,10 +11,10 @@ const GetStartedContainer = ({ items }: GetStartedContainerProps) => {
             {items.map((item, i) => (
                 <AnimateOnView key={item.id} direction="up" delay={i * 0.08}>
                     <motion.div key={item.id} 
-                        whileHover={{ scale: 1.02, boxShadow: "0px 0px 20px rgba(111, 199, 161, 0.7)", }}
+                        whileHover={{ scale: 1.02, boxShadow: "0px 0px 30px rgba(74, 222, 128, 0.6)", }}
                         transition={{ duration: 0.2 }} 
-                        className="poppins p-6 border-l border-l-primary hover:border-[#6FC7A1] transition-colors duration-300 h-full pb-8">
-                        <div className="text-blue-400 mb-5">{item.icon}</div>
+                        className="poppins p-6 border-l border-l-primary bg-black h-full pb-8">
+                        <div className="mb-5">{item.icon}</div>
                         <p className="text-primary text-sm">Step 0{item.id}</p>
                         <h3 className="text-xl font-bold text-gray-200 mt-1">{item.title}</h3>
                         <p className="text-gray-300 mt-5">{item.description}</p>
