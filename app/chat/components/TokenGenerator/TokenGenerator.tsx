@@ -50,7 +50,7 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
             onClick={onGenerate}
             disabled={disabled || loading }
             className={`
-                poppins mt-6 text-[16px] px-8 py-5 font-semibold
+                btn_primary poppins mt-6 text-[16px] px-8 py-5
                 ${
                   !disabled && !loading && !token
                     ? ""
@@ -61,7 +61,7 @@ export default function TokenGenerator({ token, loading, disabled, onGenerate }:
             {loading ? "Generating Token..." : "Generate Token"}
           </Button>
           {token && <Link href="/conversations">
-          <Button className="poppins mt-6 px-8 py-3 font-semibold ml-4">
+          <Button className="poppins mt-6 px-8 py-5 ml-5 font-semibold">
             Proceed
           </Button></Link>}
         </div>

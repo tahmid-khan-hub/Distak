@@ -21,7 +21,7 @@ export default function ResumeChat() {
       <AnimateOnView direction="up" delay={0.45} duration={1.0}>
         <div className="poppins mt-8 flex justify-center">
           <Link href="/conversations">
-            <Button className="px-12 py-6.5 text-[18px] font-semibold ">
+            <Button className="btn_primary px-12 py-6.5 text-[18px]">
               Continue Chat
             </Button>
           </Link>

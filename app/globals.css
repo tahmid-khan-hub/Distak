@@ -156,3 +156,16 @@
   scrollbar-width: thin;
   scrollbar-color: #4b5563 transparent;
 }
+
+/* buttons css */
+.btn_primary {
+  background-color: #0a0a0a;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  font-weight: 600;
+}
+
+.btn_primary:hover {
+  background-color: var(--color-primary);
+  color: #000000;
+}
