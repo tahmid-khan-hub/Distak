@@ -34,11 +34,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} ${lobsterTwo.variable} antialiased`}>
         <QueryProvider>
-          {/* Dark Base Background */}
-          <div className="fixed inset-0 -z-20 bg-black" />
-
           {/* Main Content */}
-          <div className="relative z-10 ">{children}</div>
+          <div className="bg-black">{children}</div>
         </QueryProvider>
       </body>
     </html>

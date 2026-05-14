@@ -3,19 +3,27 @@ import { useSession } from "@/app/hooks/useSession"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import NavbarSkeleton from "./NavbarSkeleton";
+import Logo from "@/app/Logo/logo";
 
 export default function Navbar() {
     const { data: session, isLoading } = useSession();
     
     return (
-        <div className="flex justify-end py-3">
-            {isLoading ? (
-                <NavbarSkeleton />
-            ) : session && (
-                <Link href="/conversations">
-                    <Button>Conversations</Button>
-                </Link>
-            )}
+        <div className="sticky top-0 z-50 border-b border-b-gray-700 bg-black">
+            <div className="flex justify-between w-full max-w-275 mx-auto">
+                {/* logo */}
+                <div><Logo/></div>
+
+                <div className="p-3">
+                    {isLoading ? (
+                        <NavbarSkeleton />
+                    ) : session && (
+                        <Link href="/conversations">
+                            <Button>Conversations</Button>
+                        </Link>
+                    )}
+                </div>
+            </div>
         </div>
     )
 }

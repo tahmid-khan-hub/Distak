@@ -8,14 +8,16 @@ import SafetyAndSecurity from "./HomeComponents/SafetyAndSecurity/SafetyAndSecur
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Navbar />
-      <Banner />
-      <GetStarted />
-      <CallToAction />
-      <SafetyAndSecurity />
-      <FaQ />
-      <Footer />
+      <div className="overflow-x-hidden">
+        <Banner />
+        <GetStarted />
+        <CallToAction />
+        <SafetyAndSecurity />
+        <FaQ />
+        <Footer />
+      </div>
     </div>
   );
 }
