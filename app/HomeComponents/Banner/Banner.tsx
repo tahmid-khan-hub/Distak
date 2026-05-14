@@ -1,21 +1,38 @@
 "use client";
-
 import AnimateOnView from "@/app/hooks/AnimateOnView";
 
 const Banner = () => {
     return (
-        <div className="py-24">
+        <div className="py-24 relative overflow-hidden">
+            {/* Emerald Spotlight Background */}
+            <div
+                className="absolute inset-0 z-0 pointer-events-none"
+                style={{
+                    background: `
+                        radial-gradient(
+                            circle at center,
+                            rgba(34, 197, 94, 0.12) 0%,
+                            rgba(34, 197, 94, 0.06) 20%,
+                            rgba(0, 0, 0, 0.0) 60%
+                        )
+                    `,
+                }}
+            />
             {/* content */}
-            <div>
+            <div className="relative z-10 max-w-275 mx-auto px-4">
                 {/* title */}
-                <AnimateOnView direction="up" delay={0.25} duration={0.6}>
-                    <h1 className="inter text-6xl font-bold  bg-linear-to-r from-primary to-primary/10 bg-clip-text text-transparent text-center">
-                    <span className="text-7xl text-primary transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-x-1">D</span>istak</h1>
+                <AnimateOnView direction="up" delay={0.35} duration={0.8}>
+                    <h2 className="inter text-gray-200 text-left font-bold mt-7 w-full lg:w-180 leading-none uppercase "
+                    style={{ fontSize: "clamp(2.6rem, 8vw, 7rem)" }}>
+                        Where <span className="text-primary">conversations</span> start with <br/> a token
+                    </h2>
                 </AnimateOnView>
-                {/* sub-title */}
-                <AnimateOnView direction="up" delay={0.35} duration={0.8}><h2 className="inter text-xl text-gray-200 text-center mt-7">Where conversations start with a token</h2></AnimateOnView>
                 {/* description */}
-                <AnimateOnView direction="up" delay={0.35} duration={1.0}><p className="poppins text-sm text-gray-200 text-center mt-4 max-w-3xl mx-auto"> Distak lets you generate a unique token and start chatting instantly, no phone number, no identity, just simple and secure conversations. Share your token and connect privately, whenever you want.</p></AnimateOnView>
+                <AnimateOnView direction="up" delay={0.35} duration={1.0}>
+                    <p className="poppins text-sm text-gray-300 text-left mt-10 w-full">
+                        Distak lets you generate a unique token and start chatting instantly, no phone number, <br/> no identity, just simple and secure conversations. Share your token <br/> and connect privately, whenever you want.
+                    </p>
+                </AnimateOnView>
             </div>
         </div>
     );

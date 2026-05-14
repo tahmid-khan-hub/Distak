@@ -9,7 +9,7 @@ export default function Navbar() {
     const { data: session, isLoading } = useSession();
     
     return (
-        <div className="sticky top-0 z-50 border-b border-b-gray-700 bg-black">
+        <div className="sticky top-0 z-50 border-b border-b-primary/20 bg-black">
             <div className="flex justify-between w-full max-w-275 mx-auto">
                 {/* logo */}
                 <div><Logo/></div>
@@ -19,7 +19,7 @@ export default function Navbar() {
                         <NavbarSkeleton />
                     ) : session && (
                         <Link href="/conversations">
-                            <Button>Conversations</Button>
+                            <Button className="btn_primary">Conversations</Button>
                         </Link>
                     )}
                 </div>
