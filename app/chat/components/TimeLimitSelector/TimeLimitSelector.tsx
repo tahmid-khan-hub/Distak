@@ -41,15 +41,6 @@ export default function TimeLimitSelector() {
     }
     return (
         <div className="py-24 px-4">
-            {/* Title */}
-            <AnimateOnView direction="up" delay={0.25} duration={0.6}><h1 className="inter text-4xl text-center font-bold bg-linear-to-r from-primary to-primary/10 bg-clip-text text-transparent">
-                Choose chat duration
-            </h1></AnimateOnView>
-
-            {/* description */}
-            <AnimateOnView direction="up" delay={0.25} duration={0.8}><p className="poppins text-center mt-3 text-gray-200">
-               Your chat will automatically delete after the selected time. Once deleted, messages are permanently removed and cannot be recovered. Choose a duration that fits your conversation.
-            </p></AnimateOnView>
 
             {/* options */}
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 items-stretch">
