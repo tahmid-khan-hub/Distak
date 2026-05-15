@@ -47,7 +47,7 @@ export default function TimeLimitSelector() {
                 {timeOptions.map((option, i) => (
                 <AnimateOnView key={i} direction="scale" delay={i * 0.08}>
                     <motion.div className="h-full rounded-2xl"
-                    whileHover={{ scale: 1.02, boxShadow: "0px 0px 20px rgba(111, 199, 161, 0.7)", }}
+                        whileHover={{ scale: 1.02, boxShadow: "0px 0px 30px rgba(74, 222, 128, 0.6)", }}
                         transition={{ duration: 0.2 }} >
                         <TimeLimitCard
                         key={i}

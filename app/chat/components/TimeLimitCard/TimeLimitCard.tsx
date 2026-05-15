@@ -14,13 +14,13 @@ const TimeLimitCard = ({
 }: TimeLimitCardProps) => {
   return (
     <button
-        onClick={onClick}
-        className={`
-        h-full rounded-xl border p-6 text-left flex flex-col justify-start transition-all duration-200
+      onClick={onClick}
+      className={`
+        h-full border-l border-l-primary bg-neutral-900 rounded-xl p-6 text-left flex flex-col justify-start transition-all duration-200
         ${
           selected
-            ? "border-primary bg-primary/10 shadow-[0_0_15px_rgba(111,199,161,0.4)]"
-            : "border-white/10 hover:border-primary/60"
+            ? "bg-primary/10 "
+            : ""
         }
       `}
     >
