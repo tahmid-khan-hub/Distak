@@ -17,9 +17,13 @@ export default function Navbar() {
                 <div className="p-3">
                     {isLoading ? (
                         <NavbarSkeleton />
-                    ) : session && (
+                    ) : session ? (
                         <Link href="/conversations">
                             <Button className="btn_primary">Conversations</Button>
+                        </Link>
+                    ) : (
+                        <Link href="/chat">
+                            <Button className="btn_primary">Join</Button>
                         </Link>
                     )}
                 </div>
