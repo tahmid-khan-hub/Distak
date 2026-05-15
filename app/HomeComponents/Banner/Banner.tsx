@@ -24,7 +24,11 @@ const Banner = () => {
                 <AnimateOnView direction="up" delay={0.35} duration={0.8}>
                     <h2 className="inter text-gray-200 text-left font-bold mt-7 w-full lg:w-180 leading-none uppercase "
                     style={{ fontSize: "clamp(2.6rem, 8vw, 7rem)" }}>
-                        Where <span className="text-primary">conversations</span> start with <br/> a token
+                        Where 
+                        <AnimateOnView direction="left" delay={0.35} duration={0.8}>
+                            <span className="text-primary">conversations</span>
+                        </AnimateOnView>
+                         start with <br/> a token
                     </h2>
                 </AnimateOnView>
                 {/* description */}
