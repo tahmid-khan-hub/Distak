@@ -27,7 +27,7 @@ const features = [
 
 const SafetyAndSecurity = () => {
   return (
-    <div className="py-24">
+    <div className="py-24 bg-neutral-900">
       <div className="max-w-275 mx-auto text-center px-4">
         {/* content */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
