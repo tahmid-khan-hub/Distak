@@ -3,37 +3,42 @@ import Image from "next/image";
 import SecurityContent from "./components/SecurityContent";
 import { motion } from "framer-motion";
 import AnimateOnView from "@/app/hooks/AnimateOnView";
+import { MdVisibilityOff } from "react-icons/md";
+import { BsFingerprint, BsHourglassSplit } from "react-icons/bs";
+
+const features = [
+  {
+    icon: <MdVisibilityOff className="text-primary text-xl" />,
+    title: "Zero-Knowledge Chat",
+    description:
+      "We never hold your keys. We never see your messages. Absolute privacy by design.",
+  },
+  {
+    icon: <BsFingerprint className="text-primary text-xl" />,
+    title: "Token-Bound Identity",
+    description:
+      "Every session is cryptographically tied to your token. No token, no access, no exceptions.",
+  },
+  {
+    icon: <BsHourglassSplit className="text-primary text-xl" />,
+    title: "Controlled Expiry",
+    description:
+      "Set your own deletion window. When time runs out, messages are permanently removed with no recovery possible.",
+  },
+];
 
 const SafetyAndSecurity = () => {
   return (
     <div className="py-24">
       <div className="max-w-4xl mx-auto text-center">
-        {/* icon */}
-        <AnimateOnView direction="up" delay={0.25} duration={0.6}>
-          <div className="flex justify-center mb-12">
-            <motion.div
-              initial={{ filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" }}
-              animate={{ filter: "drop-shadow(0 0 0 rgba(0,0,0,0))" }}
-              whileHover={{
-                filter: "drop-shadow(0px 0px 20px rgba(111, 199, 161, 0.7))",
-              }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-            >
-              <Image
-                src="/assets/shield.png"
-                alt="End to End Encryption"
-                width={200}
-                height={200}
-                className="w-48 h-48"
-              />
-            </motion.div>
-          </div>
-        </AnimateOnView>
-
         {/* content */}
-        <div className="">
+        {/* heading part  */}
+        <div>
           <SecurityContent />
         </div>
+
+        {/* features */}
+
       </div>
     </div>
   );
