@@ -4,7 +4,7 @@ import { BsStars } from "react-icons/bs";
 const TokenCard = () => {
   return (
     <div className="">
-      <div className="max-w-70 mx-auto border border-primary/20 mt-12">
+      <div className="max-w-70 mx-auto border border-primary/20 mt-6">
         <div className="flex items-center justify-center p-9 bg-[#0a0a0a] ">
           <div className="relative w-55 h-55 flex items-center justify-center">
             {/* Single dashed border */}
