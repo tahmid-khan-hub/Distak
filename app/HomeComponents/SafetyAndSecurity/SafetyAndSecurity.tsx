@@ -1,10 +1,8 @@
 "use client";
-import Image from "next/image";
 import SecurityContent from "./components/SecurityContent";
-import { motion } from "framer-motion";
-import AnimateOnView from "@/app/hooks/AnimateOnView";
 import { MdVisibilityOff } from "react-icons/md";
 import { BsFingerprint, BsHourglassSplit } from "react-icons/bs";
+import SecurityContentFeatures from "./components/SecurityContentFeatures";
 
 const features = [
   {
@@ -30,15 +28,19 @@ const features = [
 const SafetyAndSecurity = () => {
   return (
     <div className="py-24">
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-275 mx-auto text-center px-4">
         {/* content */}
-        {/* heading part  */}
-        <div>
-          <SecurityContent />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* heading part  */}
+          <div>
+            <SecurityContent />
+          </div>
+
+          {/* features */}
+          <div>
+            <SecurityContentFeatures features={features} />
+          </div>
         </div>
-
-        {/* features */}
-
       </div>
     </div>
   );
